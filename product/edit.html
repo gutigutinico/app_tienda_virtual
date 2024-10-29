@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CatalogoIJ</title>
+    <link href="./../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./../img/favicon.ico">
+    <style>
+        .perfil_normal,.perfil_auth{
+          display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./../index.html">
+            <img src="./../img/imgnav.png" alt="Logo" width="75" height="60" class="d-inline-block align-text-top">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav my-2 navbar-nav-scroll" style="--bs-scroll-height: 250px;margin-left: auto;">
+              <li class="nav-item me-5" >
+                <a class="nav-link active text-center" aria-current="page" href="./../index.html" >🏠 Inicio</a>
+              </li>
+              <li class="nav-item me-5 perfil_normal">
+                <div style="text-align: center;">
+                  <a type="button" class="btn btn-secondary btn-lg" style="background-color: black;" href="./../login/index.html"> 🔐Iniciar Sesion</a>
+                </div>
+              </li>
+              <li class="nav-item me-5 perfil_auth">
+                <div style="text-align: center;">
+                  <a type="button" class="btn btn-secondary btn-lg" style="background-color: black;" href="./create.html"> ➕Nuevo producto</a>
+                </div>
+              </li>
+              <li class="nav-item me-5 perfil_auth">
+                <div style="text-align: center;">
+                  <a type="button" class="btn btn-secondary btn-lg" style="background-color: black;" href="javascript:void(0)" onclick="cierre_sesion()"> 🚪Cerrar Sesion</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <section class="container-fluid"
+        style="background-image:url(./../img/imgfondoinicio.jpeg); width: 100%; height: 100%;background-repeat: no-repeat; background-size: 100% 100%; border:0px solid black;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 class="text-center fst-italic">Editar del producto</h1>
+                    <hr style="border: 2px solid black !important;">
+                    <div id="cargando">
+                        <div class="col-lg-12 text-center">
+                            <div class="spinner-grow text-primary" role="status">
+                            <span class="sr-only"></span>
+                            </div>
+                            <div class="spinner-grow text-secondary" role="status">
+                            <span class="sr-only"></span>
+                            </div>
+                            <div class="spinner-grow text-success" role="status">
+                            <span class="sr-only"></span>
+                            </div>
+                            <div class="spinner-grow text-danger" role="status">
+                            <span class="sr-only"></span>
+                            </div>
+                            <div class="spinner-grow text-warning" role="status">
+                            <span class="sr-only"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="formulario" style="display: none;">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Nombre <b
+                                            style="color: red;">(*)</b></label>
+                                    <input type="text" class="form-control" id="nombre_producto"
+                                        aria-describedby="emailHelp">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputtext1" class="form-label">Codigo <b
+                                            style="color: red;">(*)</b></label>
+                                    <input type="text" class="form-control" id="codigo_producto">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputtext1" class="form-label">Talla <b
+                                            style="color: red;">(*)</b></label>
+                                    <select class="form-select" aria-label="Default select example" id="lista_sizes">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputtext1" class="form-label">Cantidad <b
+                                            style="color: red;">(*)</b></label>
+                                    <input type="text" class="form-control" id="cantidad_producto">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputtext1" class="form-label">Categoria <b
+                                            style="color: red;">(*)</b></label>
+                                    <select class="form-select" aria-label="Default select example" id="lista_categorias">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputtext1" class="form-label">Dirigido A <b
+                                            style="color: red;">(*)</b></label>
+                                    <select class="form-select" aria-label="Default select example" id="aimed_at">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputtext1" class="form-label">URL Imagen <b
+                                            style="color: red;">(*)</b></label>
+                                    <input type="text" class="form-control" id="imagen_producto">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputtext1" class="form-label">Informacion de Whatsapp <b
+                                            style="color: red;">(*)</b></label>
+                                    <select class="form-select" aria-label="Default select example" id="lista_whatsapp_information">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputtext1" class="form-label">Descripción <b
+                                    style="color: red;">(*)</b></label>
+                            <textarea class="form-control" rows="4" placeholder=""
+                                id="descripcion_producto"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary" style="border-bottom: 6px solid blue;" onclick="guardar()">💾
+                                Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    </section>
+    <script src="./../js/jquery-3.7.1.min.js"></script>
+    <script src="./../js/bootstrap.bundle.min.js"></script>
+    <script src="./../js/axios.min.js"></script>
+    <script src="./../js/sweetAlert.js"></script>
+    <script src="./../js/config_global.js"></script>
+    <script src="./../js/script_product_edit.js"></script>
+
+</body>
+
+</html>
