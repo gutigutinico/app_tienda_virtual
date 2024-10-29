@@ -75,7 +75,7 @@ function renderCategory(index, nombre) {
 function renderProduct(index, nombre, imagen, codigo, cantidad, dirigido_a) {
     return `<div class="col-lg-4">
     <div class="card" style="border-bottom: 6px solid #eba9c5; margin-bottom: 10px;">
-        <img src=".${imagen}" class="card-img-top" alt="..." style="height: 50vh;">
+        <img src="${imagen}" class="card-img-top" alt="..." style="height: 50vh;">
         <div class="card-body">
         <h5 class="card-title text-center">${nombre}</h5>
         <hr style="border: 2px solid #eba9c5 !important; border-bottom-right-radius: 50px;border-bottom-left-radius: 50%;">
@@ -173,7 +173,7 @@ function renderModalPageProducto(index) {
     document.querySelector("#model-nombre-text").innerHTML = nombre
     document.querySelector("#model-codigo-text").innerHTML = codigo
     document.querySelector("#model-descripcion-text").innerHTML = descripcion
-    document.querySelector("#model-img-text").setAttribute("src", "."+imagen)
+    document.querySelector("#model-img-text").setAttribute("src", imagen)
     document.querySelector("#model-cantidad-text").innerHTML = cantidad
     document.querySelector("#model-dirigido-a-text").innerHTML = dirigido_a
     document.querySelector("#model-talla-text").innerHTML = talla
